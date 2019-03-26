@@ -100,7 +100,7 @@ brew cask install \
 
 
 # Command Line Toolkit
-brew install \
+brew install -with-default-names \
   aria2 \                      # download utility
   awscli \                     # aws cli
   coreutils \
