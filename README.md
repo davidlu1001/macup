@@ -14,6 +14,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/yan9yu/macup/master/instal
 - add zsh configuration
 - add common vs code add-ons
 - add common alias
+- add vim add-ons
 
 
 ## Reference
