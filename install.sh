@@ -103,6 +103,14 @@ brew cask install \
 brew install \
   aria2 \                      # download utility
   awscli \                     # aws cli
+  coreutils \
+  findutils \
+  gawk \
+  gnutls \
+  gnu-getopt \
+  gnu-indent \
+  gnu-tar \
+  gnu-sed \
   htop \                       # system monitoring
   imagemagick \                # image utility
   jq \                         # json parse utility
