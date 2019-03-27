@@ -48,7 +48,9 @@ brew cask install \
 # Application Toolkit
 brew cask install \
   anaconda \
+  ccleaner \
   docker \
+  fantastical \
   intellij-idea-ce \
   iterm2 \
   keepassx \
