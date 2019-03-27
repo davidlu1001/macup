@@ -11,10 +11,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/yan9yu/macup/master/instal
 ---
 
 ## TODO
+
+System:
+- add common alias
+
+Application:
 - add zsh configuration
 - add common vs code add-ons
-- add common alias
 - add vim add-ons
+- add IDEA add-ons
 
 
 ## Reference
