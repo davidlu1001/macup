@@ -48,6 +48,7 @@ brew cask install \
 # Application Toolkit
 brew cask install \
   anaconda \
+  aerial \
   ccleaner \
   docker \
   fantastical \
@@ -57,21 +58,22 @@ brew cask install \
   sourcetree \
   sublime-text \
   virtualbox \
-  visual-studio-code
+  visual-studio-code \
+  zoomus
 
 
 # Command Line Toolkit
-brew install -with-default-names 
+brew install \
   aria2 \
   awscli \
-  coreutils 
-  findutils 
-  gawk 
-  gnutls 
-  gnu-getopt 
-  gnu-indent 
-  gnu-tar 
-  gnu-sed 
+  coreutils \
+  findutils \
+  gawk \
+  gnutls \
+  gnu-getopt \
+  gnu-indent \
+  gnu-tar \
+  gnu-sed \
   htop \
   imagemagick \
   jq \
@@ -81,15 +83,7 @@ brew install -with-default-names
   tree \
   wget \
   xclip \
-  you-get
-
-
-#########  MAC APP STORE  #########
-
-mas install 
-  497799835 \
-  540348655 \
-  1176895641 \
+  you-get \
 
 
 #########  ZSH  #########
