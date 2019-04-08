@@ -107,6 +107,7 @@ brew_install_commandline_toolkit() {
     coreutils \
     findutils \
     gawk \
+    git-lfs \
     gnutls \
     gnu-getopt \
     gnu-indent \
