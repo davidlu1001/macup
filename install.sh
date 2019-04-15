@@ -6,11 +6,6 @@ echo_with_date() {
   echo "[`date '+%H:%M:%S'`]" $1
 }
 
-# source zsh configuration
-apply_zsh_config() {
-  source ~/.zshrc
-}
-
 
 
 #########  BASIC  #########
@@ -35,7 +30,6 @@ check_brew() {
 
 
 #########  APPLICATION  #########
-
 
 # Common Productivity App
 brew_install_productivity_app() {
@@ -120,9 +114,82 @@ brew_install_commandline_toolkit() {
     screen \
     tmux \
     tree \
+    tmux \
     wget \
     xclip \
     you-get
+}
+
+
+
+#########  MACUP  #########
+
+clone_macup() {
+  git clone https://github.com/yan9yu/macup.git ~/macup
+}
+
+
+
+#########  ALIAS  #########
+
+config_alias() {
+
+  # backup alias
+  mv -rf ~/.alias ~/.alias_bk_`date +%Y-%m-%d`
+
+  ln -s ~/macup/dotfile/alias ~/.alias
+}
+
+
+
+#########  GIT  #########
+
+config_git() {
+
+  git config --global user.name "yan9yu"
+  git config --global user.email dev.eric.young@gmail.com
+  git config --global core.editor vim
+  git config --global credential.helper cache
+  git config --global credential.helper 'cache --timeout=3600'
+}
+
+
+
+#########  ITERMS2  #########
+
+config_iterm2() {
+
+  # add Solarized Dark theme
+
+  # add powerline font
+  brew cask install font-meslo-for-powerline
+
+  # add powerlevel9k
+  git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+}
+
+
+
+#########  TMUX  #########
+
+config_tmux () {
+
+  # backup tmux
+  mv ~/.tmux.conf ~/.tmux.conf_bk_`date +%Y-%m-%d`
+
+  ln -s ~/macup/dotfile/tmux.conf ~/.tmux.conf
+}
+
+
+
+#########  VIM  #########
+
+config_vim () {
+
+  # backup vim
+  mv ~/.vimrc ~/.vimrc_bk_`date +%Y-%m-%d`
+
+  ln -s ~/macup/dotfile/vimrc ~/.vimrc
 }
 
 
@@ -136,41 +203,33 @@ install_zsh() {
 
   # change default shell to zsh
   chsh -s $(which zsh)
+
+  # add syntax highlighting
+  brew install zsh-syntax-highlighting
 }
 
 config_zsh() {
 
-  # add syntax highlighting
-  brew install zsh-syntax-highlighting
-  echo '\n#[CUSTOM] zsh syntax highlight config\nsource /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
+  # backup zsh
+  mv ~/.zshrc ~/.zshrc_bk_`date +%Y-%m-%d`
 
+  ln -s ~/macup/dotfile/zshrc ~/.zshrc
 }
 
 
 
-#########  ITERMS2  #########
+#########  APPLY  #########
 
-config_iterm2() {
+apply_config() {
 
-  # add Solarized Dark theme
-  #curl -o /tmp/solarized-dark-patched.itermcolors https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Solarized%20Dark%20-%20Patched.itermcolors
+  # iterm2
 
-  ## TODO
-  # need manual load solarized-dark-patched.itermcolors into iTerms2
+  # tmux
 
-  # add powerline font
-  brew cask install font-meslo-for-powerline
+  # vim
 
-
-  # add powerlevel9k
-  git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
-  ## TODO
-  #sed -i '/ZSH_THEME=robbyrussell/b;n;cZSH_THEME="powerlevel9k/powerlevel9k"' ~/.zshrc
-
-
-  # specify brew path
-  echo '\n#[CUSTOM] specify brew path\nexport PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
+  # zsh
+  source ~/.zshrc
 }
 
 
@@ -186,8 +245,11 @@ brew_install_development_app
 brew_install_commandline_toolkit
 
 install_zsh
+
 config_zsh
 
 config_iterm2
 
-apply_zsh_config
+config_git
+
+apply_config
