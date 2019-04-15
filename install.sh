@@ -17,14 +17,21 @@ install_brew() {
   # brew cask
   brew tap caskroom/cask
   brew tap homebrew/cask-fonts
-
 }
 
 check_brew() {
-  echo "brew path: `which brew`"
+
+  # Check for Homebrew, install bew if we don't have it
+  if test ! $(which brew); then
+    echo "Installing homebrew..."
+    install_brew
+  fi
 
   # brew doctor
   brew doctor
+
+  # cleanup
+  brew cleanup
 }
 
 
@@ -111,6 +118,8 @@ brew_install_commandline_toolkit() {
     imagemagick \
     jq \
     mas \
+    moreutils \
+    openssh \
     screen \
     tmux \
     tree \
@@ -203,12 +212,24 @@ install_zsh() {
 
   # change default shell to zsh
   chsh -s $(which zsh)
+}
+
+install_zsh_addons() {
 
   # add syntax highlighting
   brew install zsh-syntax-highlighting
+
 }
 
+
 config_zsh() {
+
+  # Check for zsh, install bew if we don't have it
+  if test ! $(which zsh); then
+    echo "Installing zsh..."
+    install_zsh
+    install_zsh_addons
+  fi
 
   # backup zsh
   mv ~/.zshrc ~/.zshrc_bk_`date +%Y-%m-%d`
@@ -225,8 +246,10 @@ apply_config() {
   # iterm2
 
   # tmux
+  source ~/.tmux.conf
 
   # vim
+  source ~/.vimrc
 
   # zsh
   source ~/.zshrc
@@ -236,20 +259,54 @@ apply_config() {
 
 #########  MAIN WORKFLOW  #########
 
+echo "------------------------------"
+echo "Installing brew"
 install_brew
 check_brew
 
+echo "------------------------------"
+echo "Brew Installing Productivity Application"
 brew_install_productivity_app
+
+echo "------------------------------"
+echo "Brew Installing Utility Application"
 brew_install_utility_app
+
+echo "------------------------------"
+echo "Brew Installing Development Application"
 brew_install_development_app
+
+echo "------------------------------"
+echo "Brew Installing Command Line Toolkit"
 brew_install_commandline_toolkit
 
-install_zsh
+echo "------------------------------"
+echo "Cloning macup project"
+clone_macup
 
-config_zsh
+echo "------------------------------"
+echo "Configing alias"
+config_alias
 
-config_iterm2
-
+echo "------------------------------"
+echo "Configing Git"
 config_git
 
+echo "------------------------------"
+echo "Configing iTerms2"
+config_iterm2
+
+echo "------------------------------"
+echo "Configing tmux"
+config_tmux
+
+echo "------------------------------"
+echo "Configing zsh"
+config_zsh
+
+echo "------------------------------"
+echo "Applying configuration"
 apply_config
+
+echo "------------------------------"
+echo "Script completed. Enjoy 🙌"
