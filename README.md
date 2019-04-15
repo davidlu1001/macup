@@ -17,6 +17,7 @@ System:
 
 Application:
 - add zsh configuration
+  - Syntax Highlight
 - add vs code add-ons
   - CloudFormation
   - Code Runner
@@ -65,3 +66,4 @@ Application:
 - [5 steps to improve your terminal appearance on Mac OSX](https://medium.com/@elviocavalcante/5-steps-to-improve-your-terminal-appearance-on-mac-osx-f58b20058c84)
 - [iterm2-solarized.md](https://gist.github.com/kevin-smets/8568070)
 - [Github: donnemartin/dev-setup](https://github.com/donnemartin/dev-setup)
+- [Github: mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
