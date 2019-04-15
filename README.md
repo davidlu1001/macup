@@ -61,6 +61,7 @@ Application:
 
 
 ## Reference
-- macOS Setup Guide: https://sourabhbajaj.com/mac-setup/
-- 5 steps to improve your terminal appearance on Mac OSX: https://medium.com/@elviocavalcante/5-steps-to-improve-your-terminal-appearance-on-mac-osx-f58b20058c84
-- iterm2-solarized.md: https://gist.github.com/kevin-smets/8568070
+- [macOS Setup Guide](https://sourabhbajaj.com/mac-setup/)
+- [5 steps to improve your terminal appearance on Mac OSX](https://medium.com/@elviocavalcante/5-steps-to-improve-your-terminal-appearance-on-mac-osx-f58b20058c84)
+- [iterm2-solarized.md](https://gist.github.com/kevin-smets/8568070)
+- [Github: donnemartin/dev-setup](https://github.com/donnemartin/dev-setup)
